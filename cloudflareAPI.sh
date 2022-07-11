@@ -27,3 +27,5 @@ if [ ${DNS_CONTENT} != ${CURRENT_IP} ]; then
         --data "{\"type\":\"${DNS_TYPE}\",\"name\":\"${DNS_NAME}\",\"content\":\"${CURRENT_IP}\",\"ttl\":${DNS_TTL},\"proxied\":${DNS_PROXIED}}"
         echo "\"`date`\" : \"${DNS_CONTENT}\" -> \"${CURRENT_IP}\"" >> update.log
 fi
+
+rm result.json

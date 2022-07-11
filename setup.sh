@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-CONF_FILE="api.conf.2"
+CONF_FILE="api.conf"
 
 # request domain, account_name, auth_email, and auth_key from user
 read -p "Enter your domain name: " domain
@@ -60,3 +60,5 @@ done
 read -p "Select desired DNS: " dns_id_pos
 dns_id=`jq -r ".result[${dns_id_pos}].id" result.json`
 echo "DNS_ID=\"${dns_id}\"" >> ${CONF_FILE}
+
+rm result.json
