@@ -4,6 +4,7 @@ Bash scripts for auto updating DNS records on Cloudflare
 # Dependencies
 
 MacOS - `brew install jq`
+
 Ubuntu - `sudo apt install jp`
 
 # Setup
