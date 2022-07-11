@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+
+source api.conf
+HEADER="-H \"X-Auth-Email: ${X_AUTH_EMAIL}\" -H \"X-Auth-Key: ${X_AUTH_KEY}\""
