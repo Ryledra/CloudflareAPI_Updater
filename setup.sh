@@ -11,7 +11,6 @@ read -p "Enter your user's authorised email address: " auth_email
 
 read -p "Enter your authorisation key: " auth_key
 
-#echo "ACCOUNT_NAME=\"${account_name}\"" >> ${CONF_FILE}
 echo "X_AUTH_EMAIL=\"${auth_email}\""   > ${CONF_FILE}
 echo "X_AUTH_KEY=\"${auth_key}\""       >> ${CONF_FILE}
 
@@ -23,15 +22,6 @@ curl -X GET "https://api.cloudflare.com/client/v4/accounts?page=1&per_page=20&di
     > result.json
 
 account_id=`jq -r ".result[0].id" result.json`
-#echo "ACCOUNT_ID=\"${account_id}\"" >> ${CONF_FILE}
-
-# get user tokens list
-#echo "user tokens"
-#curl -X GET "https://api.cloudflare.com/client/v4/user/tokens?page=1&per_page=20&direction=desc" \
-#    -H "X-Auth-Email: ${auth_email}" \
-#    -H "X-Auth-Key: ${auth_key}" \
-#    -H "Content-Type: application/json" \
-#    > result.json
 
 # get zone id
 curl -X GET "https://api.cloudflare.com/client/v4/zones?name=${domain}&status=active&account.id=${account_id}&account.name=${account_name}&page=1&per_page=20&order=status&direction=desc&match=all" \
